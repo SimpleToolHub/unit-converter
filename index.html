@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bubbly Converter</title>
+    <title>Unit Converter</title>
+    <link rel="icon" href="Gemini_Generated_Image_1eas311eas311eas.png" type="image/png">
     <style>
         body { 
             font-family: 'Segoe UI', Tahoma, sans-serif; 
@@ -25,12 +26,31 @@
             background: #f0f9ff; padding: 15px; border-radius: 15px; 
             color: #007bff; font-size: 22px; font-weight: bold; margin-top: 20px;
         }
+        /* CSS to center the icon above the title */
+        .icon-container {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background-color: #f0f9ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .icon-container img {
+            width: 80%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <h2>Multi-Converter</h2>
+    <div class="icon-container">
+        <img src="favicon.png" alt="Tool Icon">
+    </div>
+    <h2>Unit Converter</h2>
     <input type="number" id="inputVal" placeholder="Enter value" oninput="convert()">
     <select id="unitType" onchange="convert()">
         <option value="mToKm">Miles to Km</option>
