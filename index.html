@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit Converter</title>
+    <title>Bubbly Unit Converter</title>
     <link rel="icon" href="favicon.png" type="image/png">
     <style>
         body { 
@@ -17,6 +17,13 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
             width: 90%; max-width: 400px; text-align: center;
         }
+        .icon-container {
+            width: 70px; height: 70px; margin: 0 auto 15px;
+            border-radius: 50%; background-color: #f0f9ff;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; border: 2px solid #e0e0e0;
+        }
+        .icon-container img { width: 80%; height: auto; }
         input, select { 
             width: 100%; padding: 15px; margin: 10px 0; 
             border: 2px solid #e0e0e0; border-radius: 15px; 
@@ -25,22 +32,6 @@
         #result { 
             background: #f0f9ff; padding: 15px; border-radius: 15px; 
             color: #007bff; font-size: 22px; font-weight: bold; margin-top: 20px;
-        }
-        /* CSS to center the icon above the title */
-        .icon-container {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            background-color: #f0f9ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .icon-container img {
-            width: 80%;
-            height: auto;
         }
     </style>
 </head>
@@ -66,15 +57,12 @@
         const val = parseFloat(document.getElementById('inputVal').value);
         const type = document.getElementById('unitType').value;
         const resDiv = document.getElementById('result');
-        
         if (isNaN(val)) { resDiv.innerText = "Result: 0"; return; }
-
         let result = 0;
         if (type === "mToKm") result = val * 1.60934;
         else if (type === "kmToM") result = val / 1.60934;
         else if (type === "kgToLb") result = val * 2.20462;
         else if (type === "cToF") result = (val * 9/5) + 32;
-
         resDiv.innerText = "Result: " + result.toFixed(2);
     }
 </script>
