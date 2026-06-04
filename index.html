@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Bubble Unit Converter</title>
+    <!-- Ensure favicon.png is in the same folder in your GitHub repo -->
     <link rel="icon" href="favicon.png" type="image/png">
     <style>
         * { box-sizing: border-box; }
@@ -42,10 +43,12 @@
             width: 100%; overflow: hidden; background: #f8fbff;
             margin-top: 20px; padding: 12px 0;
             border-radius: 20px; white-space: nowrap;
+            contain: layout;
         }
         .ticker-content {
             display: inline-block;
-            animation: move 35s linear infinite;
+            animation: move 20s linear infinite;
+            will-change: transform;
         }
         .ticker-content span { padding: 0 20px; color: #555; font-size: 12px; }
         @keyframes move {
@@ -58,7 +61,8 @@
 
 <div class="card">
     <div class="icon-container">
-        <img src="favicon.png" alt="Icon">
+        <!-- This matches the file name for your tab icon -->
+        <img src="favicon.png" alt="Bubble Icon">
     </div>
     <h2>Bubble Converter</h2>
     <input type="number" id="inputVal" placeholder="Enter value..." oninput="convert()">
