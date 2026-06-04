@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,6 +33,21 @@
             background: #f0f9ff; padding: 15px; border-radius: 15px; 
             color: #007bff; font-size: 22px; font-weight: bold; margin-top: 20px;
         }
+        /* Ticker Styles */
+        .history-ticker {
+            width: 100%; overflow: hidden; background: #eefbff;
+            margin-top: 20px; padding: 10px 0;
+            border-radius: 15px; white-space: nowrap;
+        }
+        .ticker-content {
+            display: inline-block;
+            animation: move 20s linear infinite;
+        }
+        .ticker-content span { padding: 0 30px; color: #555; font-size: 13px; }
+        @keyframes move {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
     </style>
 </head>
 <body>
@@ -50,6 +65,14 @@
         <option value="cToF">Celsius to Fahrenheit</option>
     </select>
     <div id="result">Result: 0</div>
+    
+    <div class="history-ticker">
+        <div class="ticker-content">
+            <span>History: 'Mile' comes from Latin 'mille passus' (1,000 paces).</span>
+            <span>Fact: Celsius was originally inverted; 0 was boiling and 100 freezing!</span>
+            <span>Fact: A pound is exactly 0.45359237 kilograms.</span>
+        </div>
+    </div>
 </div>
 
 <script>
