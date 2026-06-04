@@ -1,41 +1,80 @@
-<style>
-    body { 
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        min-height: 100vh; 
-        margin: 0; 
-        background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); 
+        }
+        .card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 25px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            width: 90%; 
+            max-width: 400px; 
+            text-align: center;
+        }
+        input, select { 
+            width: 100%; 
+            padding: 15px; 
+            margin: 10px 0; 
+            border: 2px solid #e0e0e0; 
+            border-radius: 15px; 
+            box-sizing: border-box; 
+            font-size: 16px;
+        }
+        #result { 
+            background: #f0f9ff; 
+            padding: 15px; 
+            border-radius: 15px; 
+            color: #007bff; 
+            font-size: 24px; 
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Unit Converter</h2>
+    <input type="number" id="inputVal" placeholder="Enter value" oninput="convert()">
+    <select id="unitType" onchange="convert()">
+        <option value="milesToKm">Miles to Kilometers</option>
+        <option value="kmToMiles">Kilometers to Miles</option>
+    </select>
+    <div id="result">Result: 0</div>
+</div>
+
+<script>
+    function convert() {
+        const val = document.getElementById('inputVal').value;
+        const type = document.getElementById('unitType').value;
+        const resDiv = document.getElementById('result');
+        
+        if (val === "") {
+            resDiv.innerText = "Result: 0";
+            return;
+        }
+
+        let result = 0;
+        if (type === "milesToKm") {
+            result = val * 1.60934;
+        } else {
+            result = val / 1.60934;
+        }
+        resDiv.innerText = "Result: " + result.toFixed(2);
     }
-    .card { 
-        background: white; 
-        padding: 30px; 
-        border-radius: 25px; 
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
-        width: 90%; 
-        max-width: 400px; 
-        text-align: center;
-    }
-    input, select { 
-        width: 100%; 
-        padding: 15px; 
-        margin: 15px 0; 
-        border: 2px solid #e0e0e0; 
-        border-radius: 15px; 
-        box-sizing: border-box; 
-        font-size: 16px;
-        transition: border-color 0.3s;
-    }
-    input:focus { border-color: #74ebd5; outline: none; }
-    h2 { color: #333; margin-bottom: 20px; }
-    #result { 
-        background: #f0f9ff; 
-        padding: 15px; 
-        border-radius: 15px; 
-        color: #007bff; 
-        font-size: 24px; 
-        font-weight: bold;
-        margin-top: 20px;
-    }
-</style>
+</script>
+
+</body>
+</html>
